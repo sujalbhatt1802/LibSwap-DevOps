@@ -1,7 +1,6 @@
 services:
   mongo:
     image: mongo:7
-    container_name: libswap-mongo
     restart: unless-stopped
     ports:
       - "27017:27017"
@@ -13,7 +12,6 @@ services:
       context: .
       dockerfile: Dockerfile
     image: libswap:latest
-    container_name: libswap-app
     restart: unless-stopped
     ports:
       - "3000:3000"
