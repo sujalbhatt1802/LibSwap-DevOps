@@ -32,4 +32,11 @@ app.use('/api', reviewRoutes);
 app.use('/api/moderation', moderationRoutes);
 app.use('/swap', swapRoutes);
 
+app.get('/health', (req, res) => {
+    res.status(200).json({
+        status: 'UP',
+        service: 'LibSwap'
+    });
+});
+
 module.exports = app;
