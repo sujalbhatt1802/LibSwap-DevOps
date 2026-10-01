@@ -43,9 +43,11 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying LibSwap using Docker Compose...'
-                bat 'docker compose up -d --build'
-                bat 'docker compose ps'
+                echo 'Checking Docker Compose availability...'
+                bat 'docker --version'
+                bat 'docker compose version'
+                bat 'where docker'
+                bat 'where docker-compose'
             }
         }
     }
