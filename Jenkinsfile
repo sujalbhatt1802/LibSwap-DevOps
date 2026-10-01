@@ -2,43 +2,44 @@ pipeline {
     agent any
 
     stages {
-        
 
-        stage('Build') {
+        stage('Checkout') {
             steps {
-                echo '=== Building LibSwap ==='
+                checkout scm
+            }
+        }
 
-                bat 'node --version'
-                bat 'npm --version'
+        stage('Install Dependencies') {
+            steps {
+                bat 'npm install'
+            }
+        }
 
-                echo 'Installing dependencies...'
-                bat 'npm ci'
-
-                echo 'Checking Docker PATH...'
-                bat 'echo %PATH%'
-                bat 'where docker'
-
+        stage('Build Docker Image') {
+            steps {
                 echo 'Building Docker image...'
-                bat 'docker build -t libswap:%BUILD_NUMBER% .'
-
-                echo 'Creating Docker artifact...'
-                bat 'docker save -o libswap-%BUILD_NUMBER%.tar libswap:%BUILD_NUMBER%'
+                bat 'docker build -t libswap:latest .'
             }
         }
 
         stage('Test') {
             steps {
-                echo '=== Running LibSwap Tests ==='
-
                 bat 'npm test -- --runInBand'
+            }
+        }
+
+        stage('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv('SonarQube') {
+                    bat "\"${tool 'SonarScanner'}\\bin\\sonar-scanner.bat\" -Dsonar.projectKey=LibSwap -Dsonar.sources=. -Dsonar.host.url=http://localhost:9000"
+                }
             }
         }
     }
 
     post {
         always {
-            archiveArtifacts artifacts: 'libswap-*.tar',
-                             allowEmptyArchive: true
+            archiveArtifacts artifacts: 'libswap-*.tar', allowEmptyArchive: true
         }
 
         success {
