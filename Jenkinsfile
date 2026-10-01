@@ -44,6 +44,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying LibSwap using Docker Compose...'
+                bat 'docker compose down'
                 bat 'docker compose up -d --build'
                 bat 'docker compose ps'
             }
