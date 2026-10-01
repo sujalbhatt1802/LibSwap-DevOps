@@ -60,9 +60,12 @@ pipeline {
         stage('Monitoring') {
             steps {
                 echo 'Checking production health through Prometheus...'
+
                 bat 'curl.exe -s "http://localhost:9090/api/v1/query?query=probe_success%7Bjob%3D%22libswap-production%22%7D" > monitoring-result.json'
-                bat 'findstr /C:"\\"1\\"" monitoring-result.json'
-                echo 'Production monitoring check passed.'
+
+                bat '''
+                    powershell -NoProfile -Command "$json = Get-Content -Raw monitoring-result.json | ConvertFrom-Json; if ($json.data.result.Count -gt 0 -and $json.data.result[0].value[1] -eq '1') { Write-Host 'Production monitoring check: UP'; exit 0 } else { Write-Host 'Production monitoring check: DOWN'; exit 1 }"
+                '''
             }
         }
     }
