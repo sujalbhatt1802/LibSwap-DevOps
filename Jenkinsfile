@@ -2,6 +2,7 @@ pipeline {
     agent any
 
     stages {
+        
 
         stage('Build') {
             steps {
@@ -12,6 +13,10 @@ pipeline {
 
                 echo 'Installing dependencies...'
                 bat 'npm ci'
+
+                echo 'Checking Docker PATH...'
+                bat 'echo %PATH%'
+                bat 'where docker'
 
                 echo 'Building Docker image...'
                 bat 'docker build -t libswap:%BUILD_NUMBER% .'
