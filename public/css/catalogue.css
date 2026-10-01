@@ -1,0 +1,667 @@
+/* Basic page styling */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    color: #222;
+}
+
+/* Styling the top section of the page */
+header {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: #1f4e79;
+    color: white;
+}
+
+/* Removing extra space around the heading */
+header h1 {
+    margin-bottom: 8px;
+}
+
+/* Main page area */
+main {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* Search area */
+.search-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* Search label */
+.search-section label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+/* Keeps the input and button next to each other */
+.search-box {
+    display: flex;
+    gap: 10px;
+}
+
+/* Search input */
+#searchInput {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Search button */
+#searchButton {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1f4e79;
+    color: white;
+    cursor: pointer;
+}
+
+/* Changes the button slightly when the mouse is over it */
+#searchButton:hover {
+    background-color: #163a5c;
+}
+
+/* Area where all book cards will appear */
+.book-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+/* Styling for each individual book */
+.book-card {
+    background-color: white;
+    padding: 18px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+/* Book title */
+.book-card h2 {
+    margin-top: 0;
+    font-size: 20px;
+}
+
+/* Spacing between book details */
+.book-card p {
+    margin: 8px 0;
+}
+
+/* Message area for loading, errors or no results */
+#message {
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Filter and sorting controls */
+.filter-section {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+/* Keeps each filter label above its dropdown */
+.filter-control {
+    flex: 1;
+    min-width: 180px;
+}
+
+.filter-control label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.filter-control select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: white;
+}
+
+/* =========================================
+   REVIEW ACTIONS
+*/
+.book-review-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+    flex-wrap: wrap;
+}
+
+.book-review-actions button {
+    flex: 1;
+    min-width: 120px;
+    padding: 10px 12px;
+
+    border: none;
+    border-radius: 7px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.view-reviews-button {
+    background-color: #eef2f7;
+    color: #1f4e79;
+}
+
+.view-reviews-button:hover {
+    background-color: #e0e7ef;
+}
+
+.write-review-button {
+    background-color: #1f4e79;
+    color: white;
+}
+
+.write-review-button:hover {
+    background-color: #163a5c;
+}
+
+
+/* =========================================
+   REVIEW MODAL
+*/
+.review-modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(15, 23, 42, 0.55);
+
+    backdrop-filter: blur(4px);
+}
+
+.review-modal.hidden {
+    display: none;
+}
+
+.review-modal-content {
+    position: relative;
+
+    width: 100%;
+    max-width: 560px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: white;
+
+    border-radius: 16px;
+
+    padding: 32px;
+
+    box-shadow:
+        0 24px 60px rgba(15, 23, 42, 0.22);
+}
+
+
+/* Close button */
+
+.review-close {
+    position: absolute;
+
+    top: 16px;
+    right: 18px;
+
+    width: 36px;
+    height: 36px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #f1f3f5;
+
+    color: #555;
+
+    font-size: 24px;
+
+    cursor: pointer;
+}
+
+.review-close:hover {
+    background: #e5e7eb;
+}
+
+
+/* Header */
+
+.review-modal-header {
+    padding-right: 40px;
+
+    margin-bottom: 28px;
+}
+
+.review-label {
+    display: inline-block;
+
+    margin-bottom: 8px;
+
+    color: #1f4e79;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+}
+
+.review-modal-header h2 {
+    margin: 0 0 6px;
+
+    font-size: 26px;
+
+    color: #222;
+}
+
+.review-modal-header p {
+    margin: 0;
+
+    color: #777;
+
+    font-size: 14px;
+}
+
+
+/* Rating */
+
+.review-rating-section {
+    margin-bottom: 24px;
+}
+
+.review-rating-section label,
+.review-comment-section label {
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-weight: 700;
+
+    color: #333;
+}
+
+.rating-stars {
+    display: flex;
+    gap: 4px;
+}
+
+.star-button {
+    border: none;
+
+    background: transparent;
+
+    color: #d1d5db;
+
+    font-size: 36px;
+
+    line-height: 1;
+
+    padding: 2px;
+
+    cursor: pointer;
+
+    transition:
+        color 0.15s ease,
+        transform 0.15s ease;
+}
+
+.star-button:hover,
+.star-button.selected {
+    color: #f59e0b;
+
+    transform: scale(1.08);
+}
+
+.rating-text {
+    margin: 8px 0 0;
+
+    color: #667085;
+
+    font-size: 13px;
+}
+
+
+/* Comment */
+
+.review-comment-section {
+    position: relative;
+
+    margin-bottom: 18px;
+}
+
+.review-comment-section textarea {
+    width: 100%;
+
+    padding: 13px;
+
+    border: 1px solid #d0d5dd;
+
+    border-radius: 9px;
+
+    resize: vertical;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition: border-color 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.review-comment-section textarea:focus {
+    border-color: #1f4e79;
+
+    box-shadow:
+        0 0 0 3px rgba(31, 78, 121, 0.10);
+}
+
+.character-count {
+    margin-top: 5px;
+
+    text-align: right;
+
+    color: #98a2b3;
+
+    font-size: 12px;
+}
+
+
+/* Message */
+
+.review-message {
+    min-height: 22px;
+
+    margin: 10px 0;
+
+    color: #b42318;
+
+    font-size: 13px;
+}
+
+
+/* Submit */
+
+.submit-review-button {
+    width: 100%;
+
+    padding: 13px 18px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #1f4e79;
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: background 0.2s ease,
+                transform 0.15s ease;
+}
+
+.submit-review-button:hover {
+    background: #163a5c;
+
+    transform: translateY(-1px);
+}
+
+.submit-review-button:disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .review-modal-content {
+        padding: 24px 20px;
+    }
+
+    .review-modal-header h2 {
+        font-size: 22px;
+    }
+
+    .star-button {
+        font-size: 32px;
+    }
+
+    .book-review-actions {
+        flex-direction: column;
+    }
+
+    .book-review-actions button {
+        width: 100%;
+    }
+}
+
+/* =========================================
+   REVIEWS
+*/
+.my-reviews-control {
+    margin-top: 15px;
+}
+
+.my-reviews-button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 7px;
+    background: #f0f3f7;
+    color: #1f4e79;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.my-reviews-button:hover {
+    background: #e4e9ef;
+}
+
+
+/* Review summary */
+
+.reviews-summary {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background: #f7f9fb;
+}
+
+.average-rating {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.average-rating strong {
+    font-size: 28px;
+}
+
+.average-stars {
+    margin-left: 10px;
+    color: #f59e0b;
+    font-size: 22px;
+}
+
+.review-count {
+    margin: 6px 0 0;
+    color: #667085;
+    font-size: 13px;
+}
+
+
+/* Public reviews */
+
+.book-reviews-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.public-review-card,
+.my-review-card {
+    padding: 18px;
+    border: 1px solid #e4e7ec;
+    border-radius: 10px;
+    background: white;
+}
+
+.public-review-top,
+.my-review-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.public-review-top h3,
+.my-review-header h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.review-date {
+    margin: 4px 0 0;
+    color: #98a2b3;
+    font-size: 12px;
+}
+
+.public-review-rating,
+.my-review-stars {
+    color: #f59e0b;
+    white-space: nowrap;
+}
+
+.public-review-comment,
+.my-review-comment {
+    margin: 14px 0 0;
+    color: #475467;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+
+/* My review status */
+
+.review-status {
+    padding: 5px 9px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: capitalize;
+    height: fit-content;
+}
+
+.review-status.pending {
+    background: #fff4e5;
+    color: #b54708;
+}
+
+.review-status.approved {
+    background: #ecfdf3;
+    color: #027a48;
+}
+
+.review-status.removed {
+    background: #fef3f2;
+    color: #b42318;
+}
+
+
+/* Actions */
+
+.my-review-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.edit-review-button,
+.delete-review-button {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.edit-review-button {
+    background: #eef4fb;
+    color: #1f4e79;
+}
+
+.delete-review-button {
+    background: #fef3f2;
+    color: #b42318;
+}
+
+.edit-review-button:hover {
+    background: #e3edf8;
+}
+
+.delete-review-button:hover {
+    background: #fee4e2;
+}
+
+
+/* Empty/loading */
+
+.empty-reviews,
+.reviews-loading {
+    padding: 25px;
+    text-align: center;
+    color: #667085;
+}
+/* Simple top navigation shared across the LibSwap pages */
+.site-nav {
+    margin-top: 12px;
+}
+
+.site-nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 4px;
+}
+
+.site-nav a:hover {
+    border-bottom-color: white;
+}

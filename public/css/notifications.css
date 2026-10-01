@@ -1,0 +1,214 @@
+/* Basic page styling - matches catalogue.css so the app feels consistent */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    color: #222;
+}
+
+/* Styling the top section of the page */
+header {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: #1f4e79;
+    color: white;
+}
+
+header h1 {
+    margin-bottom: 8px;
+}
+
+/* Main page area */
+main {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* Shared card-style panel used for both the login form and the app content */
+.panel {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.panel.hidden {
+    display: none;
+}
+
+.form-row {
+    margin-bottom: 14px;
+}
+
+.form-row label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.form-row input,
+.form-row textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1f4e79;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+button:hover {
+    background-color: #163a5c;
+}
+
+button:disabled {
+    background-color: #9aa9b6;
+    cursor: not-allowed;
+}
+
+.secondary-button {
+    background-color: white;
+    color: #1f4e79;
+    border: 1px solid #1f4e79;
+}
+
+.secondary-button:hover {
+    background-color: #eaf0f6;
+}
+
+/* Account bar showing who is logged in, plus logout */
+.account-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Toolbar above the notification list */
+.notifications-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.filter-control label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.filter-control select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+    background-color: white;
+}
+
+.unread-badge {
+    background-color: #1f4e79;
+    color: white;
+    border-radius: 12px;
+    padding: 4px 12px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.unread-badge.zero {
+    background-color: #9aa9b6;
+}
+
+/* Message area for loading, errors or no results */
+.message {
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* Area where all notification cards appear */
+.notification-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* One notification */
+.notification-card {
+    background-color: #f9fafb;
+    border: 1px solid #ddd;
+    border-left: 5px solid #9aa9b6;
+    border-radius: 6px;
+    padding: 14px 16px;
+}
+
+/* Unread notifications stand out with the LibSwap brand colour */
+.notification-card.unread {
+    border-left-color: #1f4e79;
+    background-color: #eef4fa;
+}
+
+.notification-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.notification-card h3 {
+    margin: 0 0 6px 0;
+    font-size: 16px;
+}
+
+.notification-card p {
+    margin: 0;
+}
+
+.notification-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.notification-type {
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    color: #55677a;
+}
+
+.notification-time {
+    font-size: 12px;
+    color: #7a8894;
+}
+
+/* Simple top navigation shared across the LibSwap pages */
+.site-nav {
+    margin-top: 12px;
+}
+
+.site-nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 4px;
+}
+
+.site-nav a:hover {
+    border-bottom-color: white;
+}

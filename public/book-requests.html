@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- This helps the page display properly on different screen sizes -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LibSwap Book Requests</title>
+
+    <!-- Connecting our CSS file -->
+    <link rel="stylesheet" href="css/book-requests.css">
+</head>
+
+<body>
+
+    <!-- Main heading for the book request page -->
+    <header>
+        <h1>Request a Book</h1>
+        <p>Can't find a book in the catalogue? Ask the library to source it.</p>
+        <nav class="site-nav">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="catalogue.html">Catalogue</a>
+            <a href="book-requests.html">Request a Book</a>
+            <a href="notifications.html">Notifications</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Shown only when the visitor is not logged in yet -->
+        <section id="loginSection" class="panel">
+            <h2>Sign in to request a book</h2>
+
+            <div class="form-row">
+                <label for="loginEmail">Email</label>
+                <input type="email" id="loginEmail" placeholder="you@deakin.edu.au">
+            </div>
+
+            <div class="form-row">
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" placeholder="Password">
+            </div>
+
+            <button id="loginButton">Sign in</button>
+
+            <p id="loginMessage" class="message"></p>
+        </section>
+
+        <!-- Shown once the visitor is logged in -->
+        <section id="appSection" class="panel hidden">
+
+            <div class="account-bar">
+                <span id="welcomeText"></span>
+                <button id="logoutButton" class="secondary-button">Logout</button>
+            </div>
+
+            <!-- New book request form -->
+            <section class="request-form">
+                <h2>Request a new book</h2>
+
+                <div class="form-row">
+                    <label for="titleInput">Title *</label>
+                    <input type="text" id="titleInput" placeholder="e.g. Project Hail Mary">
+                </div>
+
+                <div class="form-row">
+                    <label for="authorInput">Author</label>
+                    <input type="text" id="authorInput" placeholder="e.g. Andy Weir">
+                </div>
+
+                <div class="form-row">
+                    <label for="genreInput">Genre</label>
+                    <input type="text" id="genreInput" placeholder="e.g. Science Fiction">
+                </div>
+
+                <div class="form-row">
+                    <label for="reasonInput">Why do you need it? (optional)</label>
+                    <textarea id="reasonInput" rows="3" placeholder="Any extra detail for the library staff"></textarea>
+                </div>
+
+                <button id="submitRequestButton">Submit request</button>
+
+                <p id="requestMessage" class="message"></p>
+            </section>
+        </section>
+
+        <!-- My requests -->
+        <section id="myRequestsSection" class="panel hidden">
+            <h2>My requests</h2>
+            <p id="myRequestsMessage" class="message"></p>
+            <section id="myRequestsList" class="request-list"></section>
+        </section>
+
+        <!-- Staff-only: review every request in the system -->
+        <section id="staffSection" class="panel hidden">
+            <h2>All requests (staff)</h2>
+
+            <div class="filter-control">
+                <label for="statusFilter">Filter by status</label>
+                <select id="statusFilter">
+                    <option value="">All statuses</option>
+                    <option value="pending">Pending</option>
+                    <option value="approved">Approved</option>
+                    <option value="rejected">Rejected</option>
+                    <option value="fulfilled">Fulfilled</option>
+                </select>
+            </div>
+
+            <p id="staffMessage" class="message"></p>
+            <section id="staffRequestsList" class="request-list"></section>
+        </section>
+
+    </main>
+
+    <!-- Connecting our JavaScript file -->
+    <script src="js/book-requests.js"></script>
+
+</body>
+</html>

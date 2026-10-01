@@ -1,0 +1,195 @@
+/* Basic page styling */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    color: #222;
+}
+
+/* Top section of the page */
+header {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: #1f4e79;
+    color: white;
+}
+
+header h1 {
+    margin-bottom: 8px;
+}
+
+/* Main page content */
+main {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* White content sections */
+.moderation-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+}
+
+/* Smaller status section */
+.status-section {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+/* Heading area */
+.section-heading h2 {
+    margin-top: 0;
+}
+
+.section-heading p {
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Message shown to staff or unauthorised users */
+#moderationMessage {
+    margin: 0;
+    font-weight: bold;
+}
+
+/* Success message */
+.success-message {
+    color: #1f6b3a;
+}
+
+/* Error message */
+.error-message {
+    color: #a12622;
+}
+
+/* List containing all pending reviews */
+.review-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Individual pending review */
+.review-card {
+    border: 1px solid #d6dce1;
+    border-radius: 8px;
+    padding: 18px;
+    background-color: #fafbfc;
+}
+
+/* Review heading */
+.review-card h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: #1f4e79;
+}
+
+/* Review information */
+.review-detail {
+    margin: 7px 0;
+    line-height: 1.5;
+}
+
+/* Label beside each value */
+.review-label {
+    font-weight: bold;
+}
+
+/* Main review comment */
+.review-comment {
+    margin-top: 14px;
+    padding: 12px;
+    background-color: white;
+    border-left: 4px solid #1f4e79;
+    line-height: 1.5;
+    white-space: pre-wrap;
+}
+
+/* Moderation action buttons */
+.moderation-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+/* Shared button styling */
+.moderation-actions button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+/* Approve button */
+.approve-button {
+    background-color: #2e7d32;
+    color: white;
+}
+
+.approve-button:hover {
+    background-color: #256628;
+}
+
+/* Remove button */
+.remove-button {
+    background-color: #b3261e;
+    color: white;
+}
+
+.remove-button:hover {
+    background-color: #8f1e18;
+}
+
+/* Disabled moderation buttons */
+.moderation-actions button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Empty pending queue */
+.empty-state {
+    text-align: center;
+    padding: 30px 15px;
+    color: #555;
+    border: 1px dashed #bbb;
+    border-radius: 8px;
+}
+
+/* Navigation link */
+.navigation-link {
+    text-align: center;
+}
+
+.navigation-link a {
+    color: #1f4e79;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.navigation-link a:hover {
+    text-decoration: underline;
+}
+
+/* Smaller screen support */
+@media (max-width: 600px) {
+    main {
+        padding: 0 12px;
+    }
+
+    .review-card {
+        padding: 15px;
+    }
+
+    .moderation-actions {
+        flex-direction: column;
+    }
+
+    .moderation-actions button {
+        width: 100%;
+    }
+}

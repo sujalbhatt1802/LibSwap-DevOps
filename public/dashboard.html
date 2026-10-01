@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LibSwap Dashboard</title>
+  <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-left">
+      <div class="logo">
+        LibSwap
+      </div>
+      <div class="tagline">
+        Smart Library Management & Book Swapping System
+      </div>
+    </div>
+    <button type="button" class="logout-button" data-logout>
+      Logout
+    </button>
+  </header>
+
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <ul>
+      <li onclick="window.location.href='catalogue.html'">Library Catalogue</li>
+      <li data-section="student-info">Your Info</li>
+      <li data-section="my-books">My Books</li>
+      <li data-section="borrowed-books">Borrowed Books</li>
+      <li data-section="reservations">Your Reservations</li>
+      <li><a href="notifications.html">Notifications <span id="circulation-unread"></span></a></li>
+      <li data-section="swap-requests">Swap Requests</li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="content">
+    <p id="circulation-message" role="status" aria-live="polite"></p>
+    <p id="reservation-alert" role="status" aria-live="polite"></p>
+
+    <!-- Student Info -->
+    <section id="student-info" class="section active">
+      <h2>Your Info</h2>
+      <div id="student-details"></div>
+    </section>
+
+    <!-- My Books -->
+    <section id="my-books" class="section">
+      <h2>My Uploaded Books</h2>
+      
+      <!-- Add Book Form -->
+      <div class="form-container">
+        <h3>Share a New Book</h3>
+        <form id="dashboardAddBookForm">
+          <div class="form-group">
+            <input type="text" id="newBookTitle" placeholder="Book Title (required)" required>
+          </div>
+          <div class="form-group">
+            <input type="text" id="newBookAuthor" placeholder="Author (required)" required>
+          </div>
+          <div class="form-group">
+            <input type="text" id="newBookGenre" placeholder="Genre (optional)">
+          </div>
+          <p id="addBookMessage" class="message"></p>
+          <button type="submit" class="action-btn">Add Book</button>
+        </form>
+      </div>
+
+      <!-- Delete Books List -->
+      <div class="list-container">
+        <h3>My Books List</h3>
+        <ul id="my-books-list">
+          <li>Loading your books...</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Borrowed Books -->
+    <section id="borrowed-books" class="section">
+      <h2>Borrowed Books</h2>
+      <p>New loans are due 14 days after borrowing. Return books here when finished.</p>
+      <button id="loadBorrowBooksBtn" class="action-btn">Borrow a Book</button>
+      <button id="refreshCirculationBtn" class="action-btn" type="button">Refresh status</button>
+      <ul id="borrowed-list"></ul>
+      <h3>Borrowing History</h3>
+      <ul id="borrowing-history"></ul>
+    </section>
+
+    <!-- Borrow Section (hidden by default) -->
+    <section id="borrow-section" class="section">
+      <h2>Select a Book to Borrow</h2>
+      <div id="borrow-books-container"></div>
+    </section>
+
+    <!-- Reservations -->
+    <section id="reservations" class="section">
+      <h2>Your Reservations</h2>
+      <p>Reservations are first come, first served. Your position and status appear below; an alert is saved in Notifications when your book is ready.</p>
+      <button id="loadReservationBooksBtn" class="action-btn">Reserve a Book</button>
+      <ul id="reservation-list"></ul>
+    </section>
+
+    <!-- Reserve Section (hidden by default) -->
+    <section id="reserve-section" class="section">
+      <h2>Select a Book to Reserve</h2>
+      <div id="reserve-books-container"></div>
+    </section>
+
+    <!-- Swap Requests -->
+    <section id="swap-requests" class="section">
+      <h2>Swap Requests</h2>
+
+      <button class="action-btn" onclick="window.location.href='swap.html'">
+        Request a Swap
+      </button>
+
+      <!-- Sent Requests -->
+      <h3>Requests You Sent</h3>
+      <div id="swap-sent-list" class="swap-list"></div>
+
+      <!-- Received Requests -->
+      <h3>Requests You Received</h3>
+      <div id="swap-received-list" class="swap-list"></div>
+    </section>
+
+    <button id="logoutBtn" class="logout-button" style="margin-top: 20px;">Logout</button>
+
+  </main>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/dashboard.js"></script>
+  <script src="/js/auth.js"></script>
+
+  <!-- Sidebar Navigation -->
+  <script>
+    document.querySelectorAll(".sidebar li").forEach(item => {
+      item.addEventListener("click", () => {
+        const target = item.getAttribute("data-section");
+        if (!target) return;
+
+        document.querySelectorAll(".section")
+          .forEach(sec => sec.classList.remove("active"));
+
+        document.getElementById(target).classList.add("active");
+      });
+    });
+  </script>
+
+</body>
+
+</html>

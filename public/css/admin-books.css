@@ -1,0 +1,191 @@
+/* Basic page styling */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    color: #222;
+}
+
+/* Styling the top section of the page */
+header {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 150px;
+    padding: 30px 100px 30px 30px;
+
+    background-color: #1f4e79;
+    color: white;
+}
+
+.admin-header-content {
+    text-align: center;
+}
+
+.logout-button {
+    position: absolute;
+    top: 28px;
+    right: 28px;
+
+    padding: 10px 18px;
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 7px;
+
+    background: rgba(255, 255, 255, 0.10);
+    color: white;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.logout-button:hover {
+    background: white;
+    color: #1f4e79;
+}
+
+/* Removing extra space around the heading */
+header h1 {
+    margin-bottom: 8px;
+}
+
+/* Main page area */
+main {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* White sections used for the form and book list */
+.admin-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+}
+
+/* Section headings */
+.admin-section h2 {
+    margin-top: 0;
+}
+
+/* Keeps each form label above its input */
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+/* Form fields */
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+/* Buttons underneath the form */
+.form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.form-actions button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+/* Main save button */
+#saveButton {
+    background-color: #1f4e79;
+    color: white;
+}
+
+#saveButton:hover {
+    background-color: #163a5c;
+}
+
+/* Cancel button */
+#cancelButton {
+    background-color: #e2e6ea;
+    color: #222;
+}
+
+/* Message area for success or error messages */
+#adminMessage {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+/* Allows the table to scroll on smaller screens */
+.table-container {
+    overflow-x: auto;
+}
+
+/* Book management table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f0f3f6;
+}
+
+/* Area above the table */
+.section-heading p {
+    margin-bottom: 0;
+    color: #555;
+}
+
+/* Link back to the normal catalogue */
+.catalogue-link {
+    text-align: center;
+}
+
+.catalogue-link a {
+    color: #1f4e79;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.catalogue-link a:hover {
+    text-decoration: underline;
+}
+
+/* Makes the page easier to use on smaller screens */
+@media (max-width: 600px) {
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .form-actions button {
+        width: 100%;
+    }
+}

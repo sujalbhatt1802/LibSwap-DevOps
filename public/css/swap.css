@@ -1,0 +1,212 @@
+/* Page layout */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f7fa;
+}
+
+/* Header */
+.header {
+  background: #1e3d59;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.logo {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.tagline {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background: #16324f;
+  color: white;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  padding-top: 100px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  padding: 15px 20px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.sidebar li:hover {
+  background: #1e3d59;
+}
+
+.sidebar .active {
+  background: #2ecc71;
+}
+
+/* Main content */
+.content {
+  margin-left: 240px;
+  padding: 30px;
+}
+
+/* Swap sections */
+.swap-section {
+  background: white;
+  padding: 20px;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.swap-section h2 {
+  color: #1e3d59;
+  margin-bottom: 15px;
+}
+
+/* Book cards */
+.book-card {
+  background: #ffffff;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.book-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.book-card.selected {
+  border: 2px solid #2ecc71;
+  background: #e9f9ef;
+}
+
+/* Select button inside book card */
+.book-card button {
+  background: #1e3d59;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.book-card button:hover {
+  background: #16324f;
+  transform: scale(1.05);
+}
+
+/* Send Request Button */
+#sendRequestBtn {
+  background: #2ecc71;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+#sendRequestBtn:hover {
+  background: #27c165;
+  transform: translateY(-2px);
+}
+
+/* Back Button */
+#backBtn {
+  background: #1e3d59;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+#backBtn:hover {
+  background: #16324f;
+  transform: translateY(-2px);
+}
+
+/* Status message */
+#statusMsg {
+  margin-top: 10px;
+  font-weight: 600;
+  color: #1e3d59;
+}
+
+/* Swap Request Cards */
+.swap-card {
+  background: #ffffff;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  border-left: 4px solid #1e3d59;
+}
+
+.swap-card p {
+  margin: 5px 0;
+  color: #333;
+}
+
+/* Swap Buttons */
+.accept-btn,
+.reject-btn,
+.cancel-btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 10px;
+  margin-top: 10px;
+  font-size: 14px;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+/* Accept */
+.accept-btn {
+  background: #2ecc71;
+  color: white;
+}
+.accept-btn:hover {
+  background: #27c165;
+  transform: translateY(-2px);
+}
+
+/* Reject */
+.reject-btn {
+  background: #e74c3c;
+  color: white;
+}
+.reject-btn:hover {
+  background: #c0392b;
+  transform: translateY(-2px);
+}
+
+/* Cancel */
+.cancel-btn {
+  background: #f1c40f;
+  color: #333;
+}
+.cancel-btn:hover {
+  background: #d4ac0d;
+  transform: translateY(-2px);
+}

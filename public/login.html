@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LibSwap — Login</title>
+
+    <link rel="stylesheet" href="/css/auth.css">
+</head>
+
+<body class="auth-page">
+
+    <main class="auth-shell">
+
+        <section class="auth-card">
+
+            <!-- Brand -->
+            <div class="brand">
+                <div class="brand-icon">L</div>
+                <span>LibSwap</span>
+            </div>
+
+            <!-- Heading -->
+            <div class="auth-heading">
+                <h1>Welcome back</h1>
+                <p>Sign in to your LibSwap account</p>
+            </div>
+
+            <!-- Login Form -->
+            <form id="loginForm">
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="loginEmail">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="loginEmail"
+                        name="email"
+                        placeholder="you@example.com"
+                        autocomplete="email"
+                        required
+                    >
+                </div>
+
+                <!-- Password -->
+                <div class="form-group">
+                    <label for="loginPassword">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="loginPassword"
+                        name="password"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required
+                    >
+                </div>
+
+                <!-- Login Button -->
+                <button
+                    type="submit"
+                    id="loginButton"
+                    class="auth-button"
+                >
+                    Sign In
+                </button>
+
+                <!-- Error / Success Message -->
+                <p
+                    id="loginMessage"
+                    class="message"
+                    aria-live="polite"
+                ></p>
+
+            </form>
+
+            <!-- Footer -->
+            <div class="auth-footer">
+                <span>Don't have a student account?</span>
+
+                <a href="/register.html">
+                    Register as Student
+                </a>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="/js/auth.js"></script>
+
+</body>
+</html>

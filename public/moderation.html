@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Helps the page display properly on different screen sizes -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LibSwap Staff - Content Moderation</title>
+
+    <!-- Connecting the moderation page CSS -->
+    <link rel="stylesheet" href="css/moderation.css">
+</head>
+
+<body>
+
+    <!-- Main heading for the moderation page -->
+    <header>
+        <h1>LibSwap Content Moderation</h1>
+
+        <p>
+            Review user-generated content waiting for staff moderation.
+        </p>
+    </header>
+
+    <main>
+
+        <!-- Displays staff access, loading and error messages -->
+        <section class="moderation-section status-section">
+            <p id="moderationMessage">
+                Checking staff access...
+            </p>
+        </section>
+
+        <!-- Pending reviews will be added here by JavaScript -->
+        <section class="moderation-section">
+            <div class="section-heading">
+                <h2>Pending Reviews</h2>
+
+                <p>
+                    Reviews submitted by users and waiting for
+                    moderation are displayed below.
+                </p>
+            </div>
+
+            <div id="reviewList" class="review-list">
+                <!-- Review cards will be loaded here -->
+            </div>
+        </section>
+
+        <p class="navigation-link">
+            <a href="admin-books.html">
+                Back to Book Management
+            </a>
+        </p>
+
+    </main>
+
+    <!-- Socket.IO lets the page receive real-time moderation updates -->
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script src="js/moderation.js"></script>
+
+</body>
+</html>

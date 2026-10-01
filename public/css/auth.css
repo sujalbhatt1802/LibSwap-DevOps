@@ -1,0 +1,378 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --primary: #4f46e5;
+    --primary-dark: #4338ca;
+    --text: #111827;
+    --muted: #667085;
+    --border: #dfe3ea;
+    --background: #f6f7fb;
+    --surface: #ffffff;
+    --input-bg: #fbfcfe;
+    --error: #dc2626;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+}
+
+/* =========================
+   PAGE
+   ========================= */
+
+.auth-page {
+    min-height: 100vh;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px 20px;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(79, 70, 229, 0.10),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(99, 102, 241, 0.08),
+            transparent 32%
+        ),
+        var(--background);
+}
+
+/* =========================
+   SHELL
+   ========================= */
+
+.auth-shell {
+    width: 100%;
+    max-width: 520px;
+}
+
+/* =========================
+   CARD
+   ========================= */
+
+.auth-card {
+    position: relative;
+
+    width: 100%;
+
+    padding: 40px;
+
+    background: var(--surface);
+
+    border: 1px solid #e7e9ee;
+    border-radius: 20px;
+
+    box-shadow:
+        0 24px 70px rgba(16, 24, 40, 0.10),
+        0 4px 16px rgba(16, 24, 40, 0.04);
+
+    overflow: hidden;
+}
+
+.auth-card::before {
+    content: '';
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 4px;
+
+    background: linear-gradient(
+        90deg,
+        #4f46e5,
+        #6366f1,
+        #818cf8
+    );
+}
+
+/* =========================
+   BRAND
+   ========================= */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
+    margin-bottom: 30px;
+
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.brand-icon {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        135deg,
+        #4f46e5,
+        #6366f1
+    );
+
+    color: white;
+
+    font-size: 18px;
+    font-weight: 800;
+
+    box-shadow:
+        0 8px 18px rgba(79, 70, 229, 0.22);
+}
+
+/* =========================
+   HEADING
+   ========================= */
+
+.auth-heading {
+    margin-bottom: 30px;
+}
+
+.auth-heading h1 {
+    margin: 0 0 8px;
+
+    font-size: 28px;
+    line-height: 1.25;
+
+    font-weight: 800;
+
+    letter-spacing: -0.7px;
+}
+
+.auth-heading p {
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* =========================
+   FORM
+   ========================= */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #344054;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    height: 50px;
+
+    padding: 0 14px;
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    background: var(--input-bg);
+
+    color: var(--text);
+
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.form-group input::placeholder {
+    color: #98a2b3;
+}
+
+.form-group input:hover {
+    border-color: #c7ccd5;
+}
+
+.form-group input:focus {
+    border-color: var(--primary);
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 0 4px rgba(79, 70, 229, 0.10);
+}
+
+/* =========================
+   BUTTON
+   ========================= */
+
+.auth-button {
+    width: 100%;
+    height: 50px;
+
+    margin-top: 4px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: linear-gradient(
+        135deg,
+        #4f46e5,
+        #6366f1
+    );
+
+    color: white;
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 24px rgba(79, 70, 229, 0.22);
+
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        background 0.18s ease;
+}
+
+.auth-button:hover {
+    background: linear-gradient(
+        135deg,
+        #4338ca,
+        #4f46e5
+    );
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 14px 28px rgba(79, 70, 229, 0.28);
+}
+
+.auth-button:active {
+    transform: translateY(0);
+}
+
+.auth-button:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* =========================
+   MESSAGE
+   ========================= */
+
+.message {
+    min-height: 20px;
+
+    margin: 12px 0 0;
+
+    color: var(--error);
+
+    font-size: 13px;
+    line-height: 20px;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+
+.auth-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+
+    margin-top: 28px;
+    padding-top: 22px;
+
+    border-top: 1px solid #eaecf0;
+
+    color: var(--muted);
+
+    font-size: 13px;
+    line-height: 1.6;
+
+    text-align: center;
+}
+
+.auth-footer a {
+    color: var(--primary);
+
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+.auth-footer a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 600px) {
+
+    .auth-page {
+        padding: 24px 14px;
+    }
+
+    .auth-card {
+        padding: 30px 24px 26px;
+        border-radius: 16px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .auth-heading h1 {
+        font-size: 25px;
+    }
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- This helps the page display properly on different screen sizes -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LibSwap Admin - Book Management</title>
+
+    <!-- Connecting the admin page CSS -->
+    <link rel="stylesheet" href="css/admin-books.css">
+</head>
+
+<body>
+
+    <!-- Main heading for the admin book management page -->
+    <header class="admin-header">
+        <div class="admin-header-content">
+            <h1>LibSwap Book Management</h1>
+            <p>Add, edit and remove books from the library catalogue.</p>
+        </div>
+
+        <button type="button" class="logout-button" data-logout>
+            Logout
+        </button>
+    </header>
+
+    <main>
+
+        <!-- Form area for adding or editing a book -->
+        <section class="admin-section">
+            <h2>Book Details</h2>
+
+            <form id="bookForm">
+
+                <div class="form-group">
+                    <label for="title">Book title</label>
+                    <input type="text" id="title" name="title" placeholder="Enter book title" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="author">Author</label>
+                    <input type="text" id="author" name="author" placeholder="Enter author name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="genre">Genre</label>
+                    <input type="text" id="genre" name="genre" placeholder="Enter genre">
+                </div>
+
+                <div class="form-group">
+                    <label for="available">Availability</label>
+                    <select id="available" name="available">
+                        <option value="true">Available</option>
+                        <option value="false">Unavailable</option>
+                    </select>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" id="saveButton">
+                        Add Book
+                    </button>
+
+                    <button type="button" id="cancelButton">
+                        Cancel
+                    </button>
+                </div>
+
+            </form>
+
+            <!-- This area will later show success and error messages -->
+            <p id="adminMessage"></p>
+        </section>
+
+        <!-- Existing books will be displayed here -->
+        <section class="admin-section">
+            <div class="section-heading">
+                <h2>Library Books</h2>
+                <p>Manage the books currently stored in the catalogue.</p>
+            </div>
+
+            <div class="table-container">
+                <table id="bookTable">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Genre</th>
+                            <th>Availability</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="bookTableBody">
+                        <!-- Book rows will be loaded here during integration -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <p class="catalogue-link">
+            <a href="moderation.html">Content Moderation</a>
+        </p>
+
+        <p class="catalogue-link">
+            <a href="catalogue.html">View Library Catalogue</a>
+        </p>
+
+    </main>
+
+    <script src="js/admin-books.js"></script>
+    <script src="/js/auth.js"></script>
+
+</body>
+
+</html>
