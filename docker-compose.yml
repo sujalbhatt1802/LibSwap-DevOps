@@ -1,0 +1,29 @@
+services:
+  mongo:
+    image: mongo:7
+    container_name: libswap-mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  libswap:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: libswap:latest
+    container_name: libswap-app
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      MONGO_URI: mongodb://mongo:27017/libswap
+      MONGODB_URI: mongodb://mongo:27017/libswap
+    depends_on:
+      - mongo
+
+volumes:
+  mongo_data:

@@ -41,6 +41,13 @@ pipeline {
                 bat 'trivy fs --severity HIGH,CRITICAL --exit-code 1 --no-progress .'
             }
         }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying LibSwap using Docker Compose...'
+                bat 'docker compose up -d --build'
+                bat 'docker compose ps'
+            }
+        }
     }
 
     post {
