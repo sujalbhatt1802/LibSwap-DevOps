@@ -1,0 +1,11 @@
+groups:
+  - name: libswap-alerts
+    rules:
+      - alert: LibSwapProductionDown
+        expr: probe_success{job="libswap-production"} == 0
+        for: 30s
+        labels:
+          severity: critical
+        annotations:
+          summary: "LibSwap production is down"
+          description: "LibSwap production at port 3001 is not responding."
