@@ -49,6 +49,14 @@ pipeline {
                 bat 'docker compose ps'
             }
         }
+        stage('Release') {
+            steps {
+                echo 'Promoting tested image to production...'
+                bat 'docker tag libswap:latest libswap:release-latest'
+                bat 'docker compose -f docker-compose.prod.yml up -d'
+                bat 'docker compose -f docker-compose.prod.yml ps'
+            }
+        }
     }
 
     post {

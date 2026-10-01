@@ -1,0 +1,24 @@
+services:
+  mongo-prod:
+    image: mongo:7
+    restart: unless-stopped
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongo_prod_data:/data/db
+
+  libswap-prod:
+    image: libswap:release-latest
+    restart: unless-stopped
+    ports:
+      - "3001:3000"
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      MONGO_URI: mongodb://mongo-prod:27017/libswap
+      MONGODB_URI: mongodb://mongo-prod:27017/libswap
+    depends_on:
+      - mongo-prod
+
+volumes:
+  mongo_prod_data:
