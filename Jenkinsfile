@@ -31,7 +31,7 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('SonarQube') {
-                    bat "\"${tool 'SonarScanner'}\\bin\\sonar-scanner.bat\" -Dsonar.projectKey=LibSwap -Dsonar.sources=. -Dsonar.host.url=http://localhost:9000"
+                    bat "\"${tool 'SonarScanner'}\\bin\\sonar-scanner.bat\" -Dsonar.projectKey=libSwap -Dsonar.sources=. -Dsonar.host.url=http://localhost:9000"
                 }
             }
         }
